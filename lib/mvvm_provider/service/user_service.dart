@@ -12,7 +12,7 @@ class UserService extends BaseService{
   Future<bool> login(String name,String pwd)async{
     await Future.delayed(const Duration(seconds: 1));
     int minute = DateTime.now().minute;
-    if(minute % 2 == 0){
+    if(/*minute % 2 == 0*/true){
       _timerViewModel.stopTime();
       _userViewModel.loginSuccess();
       return true;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:value_notifier_demo/mvvm_provider/provider_config.dart';
+import 'package:value_notifier_demo/mvvm_provider/route_config.dart';
 import 'package:value_notifier_demo/mvvm_provider/service/user_service.dart';
 import 'package:value_notifier_demo/mvvm_provider/view/base_view_full.dart';
-import 'package:value_notifier_demo/mvvm_provider/view/child_view.dart';
 import 'package:value_notifier_demo/mvvm_provider/view_model/user_view_model.dart';
 
 import 'login_code_timer.dart';
@@ -33,7 +33,9 @@ class LoginView extends BaseViewFull<UserViewModel> {
               onPressed: () async {
                 bool ret = await getProvider<UserService>(context).login("name1", "pwd1");
                 if (ret) {
-                  Get.to(() => const TestView());
+                  //PageX.push(testPage);
+                  PageX.push(testPage,args: {"key":"没有val"});
+                  //PageX.replaceTo(testPage,args: {"key":"没有val"});
                 }
               },
               child: const Text("login"))
