@@ -6,40 +6,10 @@ import 'package:value_notifier_demo/mvvm_provider/view/base_view.dart';
 import 'package:value_notifier_demo/mvvm_provider/view_model/joke_view_model.dart';
 
 import '../provider_config.dart';
-import 'base_view2.dart';
+import 'base_view_full.dart';
 
-void main() {
-  runApp(const IndexPage());
-}
 
-class IndexPage extends StatelessWidget {
-  const IndexPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    /// ChangeNotifierProvider对JokeViewModel状态管理
-
- /*   return ChangeNotifierProvider(
-        create: (_) => JokeViewModel(),
-        child: const MaterialApp(
-          home: JokeView(),
-        ));*/
-
-    return MultiProvider(
-        providers: providers,
-        child: const MaterialApp(
-          home: TestView(),
-        ));
-
-    return ChangeNotifierProvider(
-        create: (_) => JokeViewModel(),
-        child: MaterialApp(
-          home: TestView(),
-        ));
-  }
-}
-
-class TestView extends BaseView2<JokeViewModel> {
+class TestView extends BaseViewFull<JokeViewModel> {
 
   const TestView({Key? key}) : super(key: key);
 
@@ -59,7 +29,7 @@ class TestView extends BaseView2<JokeViewModel> {
   }
 
   @override
-  Widget builder(BuildContext context, JokeViewModel model) {
+  Widget builderView(BuildContext context, JokeViewModel model) {
     return Scaffold(
         appBar: AppBar(title: const Text("mvvm demo--test<T>")),
         body: buildView(model));
@@ -70,11 +40,6 @@ class TestView extends BaseView2<JokeViewModel> {
     getProvider<JokeService>(context).getJokeList(Provider.of<JokeViewModel>(context,listen: false));
   }
 
-  @override
-  Widget child() {
-    return const SizedBox();
-  }
-
 }
 
 class JokeView extends StatelessWidget {
@@ -83,7 +48,7 @@ class JokeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("mvvm demo--child")),
+        appBar: AppBar(title: const Text("mvvm demo")),
 
         ///消费者 ， 监听数据变化 刷新UI
         body: BaseView<JokeViewModel>(

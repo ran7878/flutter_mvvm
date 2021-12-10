@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:value_notifier_demo/counter.dart';
 
 class ProviderDemo1 extends StatelessWidget{
   final ValueNotifier<int> _notifier = ValueNotifier(1);
