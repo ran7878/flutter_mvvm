@@ -4,6 +4,7 @@ import 'package:value_notifier_demo/mvvm_provider/provider_config.dart';
 import 'package:value_notifier_demo/mvvm_provider/route_config.dart';
 import 'package:value_notifier_demo/mvvm_provider/service/user_service.dart';
 import 'package:value_notifier_demo/mvvm_provider/view/base_view_full.dart';
+import 'package:value_notifier_demo/mvvm_provider/view_model/timer_view_model.dart';
 import 'package:value_notifier_demo/mvvm_provider/view_model/user_view_model.dart';
 
 import 'login_code_timer.dart';
@@ -31,11 +32,14 @@ class LoginView extends BaseViewFull<UserViewModel> {
           Visibility(visible: model.isError, child: const Text("用户名或密码错误",style: TextStyle(color: Colors.red))),
           ElevatedButton(
               onPressed: () async {
-                bool ret = await getProvider<UserService>(context).login("name1", "pwd1");
+                bool ret = await model.login("name1", "pwd1");
                 if (ret) {
-                  //PageX.push(testPage);
+                  //todo 此业务需要用到多个viewModel
+                  // getProvider<TimerViewModel>(context).stopTime();
+
                   PageX.push(testPage,args: {"key":"没有val"});
                   //PageX.replaceTo(testPage,args: {"key":"没有val"});
+                  //PageX.push(testPage);
                 }
               },
               child: const Text("login"))

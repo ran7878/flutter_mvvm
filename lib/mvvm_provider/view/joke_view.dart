@@ -15,7 +15,7 @@ class IndexPage extends StatelessWidget{
 
     /// ChangeNotifierProvider对JokeViewModel状态管理
 
-    return ChangeNotifierProvider(create: (_)=>JokeViewModel(),
+    return ChangeNotifierProvider(create: (_)=>JokeViewModel(_),
         child: const MaterialApp(
           home: JokeView(),
         ));

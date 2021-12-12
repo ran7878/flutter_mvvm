@@ -8,15 +8,15 @@ import 'package:value_notifier_demo/mvvm_provider/view_model/timer_view_model.da
 import 'package:value_notifier_demo/mvvm_provider/view_model/user_view_model.dart';
 
 List<SingleChildWidget> providers = [
-  ...viewModelProviders,
   ...serviceProviders,
+  ...viewModelProviders,
   ...proxyProviders
 ];
 
 List<SingleChildWidget> viewModelProviders = [
-  ChangeNotifierProvider(create: (_) => JokeViewModel()),
-  ChangeNotifierProvider(create: (_) => UserViewModel()),
-  ChangeNotifierProvider(create: (_) => TimerViewModel()),
+  ChangeNotifierProvider(create: (_) => JokeViewModel(_)),
+  ChangeNotifierProvider(create: (_) => UserViewModel(_)),
+  ChangeNotifierProvider(create: (_) => TimerViewModel(_)),
 ];
 
 List<SingleChildWidget> proxyProviders = [
@@ -26,7 +26,7 @@ List<SingleChildWidget> proxyProviders = [
 
 List<SingleChildWidget> serviceProviders = [
   Provider(create: (_) => JokeService()),
-  Provider(create: (_)=>UserService(getProvider<UserViewModel>(_),getProvider<TimerViewModel>(_)))
+  Provider(create: (_)=>UserService())
 ];
 
 T getProvider<T>(BuildContext context){

@@ -1,7 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
 ///ViewModel 中间层 ， 连接数据层和UI层
 class BaseViewModel extends ChangeNotifier{
+  final BuildContext context;
+
   bool disposed = false;
+
+  BaseViewModel(this.context);
 
   @override
   void dispose() {

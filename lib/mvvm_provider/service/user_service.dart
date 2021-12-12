@@ -5,19 +5,14 @@ import 'package:value_notifier_demo/mvvm_provider/view_model/timer_view_model.da
 import 'package:value_notifier_demo/mvvm_provider/view_model/user_view_model.dart';
 
 class UserService extends BaseService{
-  final UserViewModel _userViewModel;
-  final TimerViewModel _timerViewModel;
-  UserService(this._userViewModel,this._timerViewModel);
+  UserService();
 
   Future<bool> login(String name,String pwd)async{
     await Future.delayed(const Duration(seconds: 1));
     int minute = DateTime.now().minute;
     if(/*minute % 2 == 0*/true){
-      _timerViewModel.stopTime();
-      _userViewModel.loginSuccess();
       return true;
     }else{
-      _userViewModel.loginFailed();
       return false;
     }
   }
@@ -28,7 +23,7 @@ class UserService extends BaseService{
       debugPrint("验证码发送成功");
     });
     //开始倒计时
-    _timerViewModel.timeDowner();
+    //_timerViewModel.timeDowner();
   }
 
 }
