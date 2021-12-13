@@ -11,5 +11,4 @@ class LoginCodeTimerView extends BaseViewLess<TimerViewModel>{
     return Text(model.isGetCode?"${model.time}(s)":"获取验证码",style: const TextStyle(color: Colors.green));
   }
 
-
 }

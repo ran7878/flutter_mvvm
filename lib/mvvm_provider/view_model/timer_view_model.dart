@@ -8,7 +8,7 @@ class TimerViewModel extends BaseViewModel{
 
   TimerViewModel(BuildContext context) : super(context);
 
-  void timeDowner(){
+  void _timeDowner(){
     if(time > 0){
       isGetCode = true;
       time--;
@@ -16,7 +16,7 @@ class TimerViewModel extends BaseViewModel{
       Future.delayed(const Duration(seconds: 1),(){
         if(isGetCode){
           print("倒计时--$time");
-          timeDowner();
+          _timeDowner();
         }
       });
     }else{
@@ -30,4 +30,12 @@ class TimerViewModel extends BaseViewModel{
     notifyListeners();
   }
 
+  void getCode(){
+    Future.delayed(const Duration(seconds: 1),(){
+      //验证码发送成功
+      debugPrint("验证码发送成功");
+    });
+    //开始倒计时
+    _timeDowner();
+  }
 }
