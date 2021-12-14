@@ -13,9 +13,9 @@ class FutureProviderDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureProvider<UserModel>(
+    return FutureProvider<UserModel2>(
         create: (_) => UserBiz().initName(),
-        initialData: UserModel('loading'),
+        initialData: UserModel2('loading'),
         child: const MaterialApp(
           home: ShowName(),
         ));
@@ -32,16 +32,16 @@ class ShowName extends StatelessWidget {
         body: Center(
           child: Column(
             children: [
-              Consumer<UserModel>(builder: (_, builder, child) {
+              Consumer<UserModel2>(builder: (_, builder, child) {
                 return Text("${builder.name}");
               }),
               ElevatedButton(
                   onPressed: () {
-                    Provider.of<UserModel>(context, listen: false)
+                    Provider.of<UserModel2>(context, listen: false)
                         .changeName("hi flutter");
                   },
                   child: const Text("Change Name")),
-              Consumer<UserModel>(builder: (_, builder, child) {
+              Consumer<UserModel2>(builder: (_, builder, child) {
                 return ElevatedButton(
                     onPressed: () {
                       builder.changeName("hi flutter2");

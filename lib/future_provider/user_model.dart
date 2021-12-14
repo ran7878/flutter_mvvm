@@ -1,6 +1,6 @@
-class UserModel{
+class UserModel2{
   String? name;
-  UserModel(this.name);
+  UserModel2(this.name);
 
 
   //返回一个Future

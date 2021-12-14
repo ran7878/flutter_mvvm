@@ -12,10 +12,7 @@ class UserViewModel extends BaseViewModel{
   UserViewModel(BuildContext context) : super(context);
 
   Future<bool> login(String name,String pwd)async{
-    bool ret = await getProvider<UserService>(context).login(name, pwd);
-    if(ret){
-
-    }
+    bool ret = await getProvider<UserService>(context).login("15501393136", '111111');
     return ret;
   }
 
