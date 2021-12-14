@@ -21,7 +21,12 @@ class ForgetPwdView extends BaseViewFull<UserViewModel> {
               onPressed: () {
 
               },
-              child: const Text("提交"))
+              child: const Text("提交")),
+          ElevatedButton(
+              onPressed: () {
+                PageX.backTo(loginPage);
+              },
+              child: const Text("回退到登录页"))
         ],
       ),
     );

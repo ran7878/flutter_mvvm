@@ -23,6 +23,11 @@ class TestView extends BaseViewFull<JokeViewModel> {
                   onPressed: () {
                     PageX.backAndPush(loginPage,forgetPwdPage,args: {"test":"22222"});
                   }, child: const Text("从登录页跳到忘记密码页")),
+              ElevatedButton(
+                  onPressed: () {
+                    //PageX.backAndPush(loginPage,forgetPwdPage,args: {"test":"22222"});
+                    PageX.push(forgetPwdPage,args: {"forgetPwdPage":"forgetPwdPage args"});
+                  }, child: const Text("跳到忘记密码页")),
               Expanded(
                 child: ListView.builder(
                     shrinkWrap: true,

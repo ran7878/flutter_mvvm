@@ -15,6 +15,7 @@ final List<GetPage> routes = [
   GetPage(name: forgetPwdPage, page: ()=> const ForgetPwdView())
 ];
 
+///路由跳转以及返回
 class PageX{
 
   //页面跳转
@@ -31,10 +32,18 @@ class PageX{
     return Get.offNamed<T>(route,arguments: args);
   }
 
+  //返回上一个页面
+  static void back<T>({dynamic args}){
+    Get.back<T>(result: args);
+  }
+
+  //返回到指定路由
+  static void backTo(String dest){
+    Get.until(ModalRoute.withName(dest));
+  }
+
   //回退到指定页dest，然后携带参数args跳转到route
   static Future<T?>? backAndPush<T>(String dest, String route, {dynamic args}) {
-    Get.offNamedUntil(route,(route) {
-      return (route as GetPageRoute).settings.name == dest;
-    },arguments: args);
+    return Get.offNamedUntil(route,ModalRoute.withName(dest),arguments: args);
   }
 }
