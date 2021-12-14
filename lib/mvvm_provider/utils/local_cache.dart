@@ -6,8 +6,8 @@ class LocalCache {
 
   LocalCache._();
 
-  Future<void> init()async {
-    GetStorage.init();
+  Future<bool> init()async {
+    return await GetStorage.init();
   }
 
   static LocalCache getInstance() {

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import 'package:value_notifier_demo/mvvm_provider/service/joke_service.dart';
 import 'package:value_notifier_demo/mvvm_provider/service/user_service.dart';
 import 'package:value_notifier_demo/mvvm_provider/view_model/joke_view_model.dart';
 import 'package:value_notifier_demo/mvvm_provider/view_model/timer_view_model.dart';
@@ -25,7 +24,6 @@ List<SingleChildWidget> proxyProviders = [
 ];
 
 List<SingleChildWidget> serviceProviders = [
-  Provider(create: (_) => JokeService()),
   Provider(create: (_)=>UserService())
 ];
 
