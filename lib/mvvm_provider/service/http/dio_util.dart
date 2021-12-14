@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:value_notifier_demo/mvvm_provider/service/http/dio_constant.dart';
+import 'package:value_notifier_demo/mvvm_provider/utils/local_cache.dart';
 import 'package:value_notifier_demo/mvvm_provider/utils/log_util.dart';
 const dioUtilTag = "DioUtil";
 class DioUtil{
@@ -42,7 +43,11 @@ class AuthInterceptor extends Interceptor{
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     String reqPath = options.path;
     if(reqPath != loginUrl){
-      options.headers['access-token'] = "";
+      var token = LocalCache.getInstance().get<String>("token");
+      Log.i(dioUtilTag, "token = $token");
+      if(token!= null && token.isNotEmpty){
+        options.headers['access-token'] = token;
+      }
     }
     super.onRequest(options, handler);
   }
