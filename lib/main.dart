@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
 import 'package:value_notifier_demo/mvvm_provider/route_config.dart';
@@ -36,6 +37,7 @@ class _MyAppState extends State<MyApp> {
         child: GetMaterialApp(
           initialRoute: loginPage,
           getPages: routes,
+          builder: EasyLoading.init(),
         ));
   }
 

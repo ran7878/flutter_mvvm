@@ -38,6 +38,7 @@ dependencies:
   dio: ^4.0.0
   get: ^4.5.1
   get_storage: ^2.0.3
+  flutter_easyloading: ^3.0.3
 
 
 dev_dependencies:

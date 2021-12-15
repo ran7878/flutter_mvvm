@@ -6,6 +6,7 @@ import 'package:value_notifier_demo/mvvm_provider/service/http/base_bean.dart';
 import 'package:value_notifier_demo/mvvm_provider/service/user_service.dart';
 import 'package:value_notifier_demo/mvvm_provider/utils/local_cache.dart';
 import 'package:value_notifier_demo/mvvm_provider/utils/log_util.dart';
+import 'package:value_notifier_demo/mvvm_provider/utils/toast.dart';
 import 'package:value_notifier_demo/mvvm_provider/view_model/base_view_model.dart';
 
 class UserViewModel extends BaseViewModel{
@@ -33,6 +34,7 @@ class UserViewModel extends BaseViewModel{
         //通知viewModel
         isError = true;
         notifyListeners();
+        Toast.getInstance().show(resp.message??'',position: 1);
       }
     }
     return false;
@@ -52,6 +54,7 @@ class UserViewModel extends BaseViewModel{
         Log.e("tag", "code = ${resp.code} , msg = ${resp.message}");
         msg = resp.message;
         notifyListeners();
+        Toast.getInstance().show(msg??'');
       }
     }
   }
