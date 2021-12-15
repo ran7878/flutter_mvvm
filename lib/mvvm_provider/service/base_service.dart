@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:value_notifier_demo/mvvm_provider/service/http/base_bean.dart';
 import 'package:value_notifier_demo/mvvm_provider/service/http/dio_util.dart';
 import 'package:value_notifier_demo/mvvm_provider/utils/log_util.dart';
 
@@ -6,13 +7,16 @@ import 'package:value_notifier_demo/mvvm_provider/utils/log_util.dart';
 class BaseService{
   final Dio _dio = DioUtil.instance.dio;
   final tag = "BaseService";
-  Future<dynamic> get(String path, Map<String, dynamic> params,
+
+  ///geg请求
+  Future<BaseBean?> get(String path, Map<String, dynamic> params,
       {Map<String, String>? header})async{
     try{
       var options = Options(headers: header);
       Response resp = await _dio.get(path,queryParameters: params,options: options);
       if(resp.statusCode == 200){
-        return resp.data;
+        BaseBean baseBean = BaseBean.fromJson(resp.data);
+        return baseBean;
       }else{
         throw Exception("http error ${resp.statusCode}, msg:${resp.statusMessage}");
       }
@@ -22,13 +26,15 @@ class BaseService{
     }
   }
 
-  Future<dynamic> post(String path, Map<String, dynamic> params,
+  ///post请求
+  Future<BaseBean?> post(String path, Map<String, dynamic> params,
       {Map<String, String>? header}) async {
     try{
       var options = Options(headers: header);
       Response resp = await _dio.post(path, data: params, options: options);
       if(resp.statusCode == 200){
-        return resp.data;
+        BaseBean baseBean = BaseBean.fromJson(resp.data);
+        return baseBean;
       }else{
         throw Exception("http error ${resp.statusCode}, msg:${resp.statusMessage}");
       }

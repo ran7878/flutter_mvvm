@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 ///ViewModel 中间层 ， 连接数据层和UI层
-class BaseViewModel extends ChangeNotifier{
+abstract class BaseViewModel extends ChangeNotifier{
   final BuildContext context;
 
   bool disposed = false;

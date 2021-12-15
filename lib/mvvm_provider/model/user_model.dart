@@ -1,55 +1,10 @@
-/// success : true
-/// message : "登录成功。"
-/// code : 200
-/// result : {"certInfo":[{"id":"1459502815093297153","createTime":"2021-11-13","updateTime":"2021-11-13","createBy":"2c9180827c9712c6017c9712c66f0000","updateBy":"e9ca23d68d884d4ebb19d07889727dae","delFlag":0,"customerId":"2c9180827c9712c6017c9712c66f0000","nickname":"业主15501393136","realname":"曹广东","phone":"15501393136","city":"","communityId":"5","community":"汇置尚都四期","building":"5","unit":"","roomId":"7355","room":"103","voiceprint":"","face":"","userIdentity":0,"idType":"0","idNo":"411425198911292415","certDate":"2021-11-13 20:46:02","certAuditSts":1,"certAuditBy":"e9ca23d68d884d4ebb19d07889727dae","certAuditDate":"2021-11-13","faceRecSts":0,"voiceNumber":null},{"id":"1456468049532100609","createTime":"2021-11-05","updateTime":"2021-11-05","createBy":"2c9180827c9712c6017c9712c66f0000","updateBy":"e9ca23d68d884d4ebb19d07889727dae","delFlag":0,"customerId":"2c9180827c9712c6017c9712c66f0000","nickname":"业主15501393136","realname":"曹广东","phone":"15501393136","city":"","communityId":"10","community":"汇置尚都六期","building":"3","unit":"1","roomId":"12437","room":"1-1-1","voiceprint":"","face":"","userIdentity":0,"idType":"0","idNo":"411425198911292415","certDate":"2021-11-05 11:46:58","certAuditSts":1,"certAuditBy":"e9ca23d68d884d4ebb19d07889727dae","certAuditDate":"2021-11-05","faceRecSts":0,"voiceNumber":null}],"customerInfo":{"id":"2c9180827c9712c6017c9712c66f0000","createTime":"2021-10-19 13:42:43","updateTime":"2021-11-13 20:46:26","createBy":null,"updateBy":"e9ca23d68d884d4ebb19d07889727dae","delFlag":0,"avatar":null,"username":"15501393136","nickname":"业主15501393136","realname":"曹广东","phone":"15501393136","sex":null,"password":null,"salt":null,"regDate":"2021-10-19 13:42:43","certAuditSts":1,"disableSts":0,"pwdSts":0,"qrcode":"https://aispeech-aicity.oss-cn-hangzhou.aliyuncs.com/qrcode/image81712593178.PNG","captcha":null,"oldPassword":null,"confirmPassword":null},"access-token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2Mzk0NjI5ODAsInVzZXJuYW1lIjoiMTU1MDEzOTMxMzYifQ.fwa6AkQ3EHGwUzICkJeXFRr6ld9KW7dIFNvapXfvcG8"}
-/// timestamp : 1639461180895
-
 class UserModel {
   UserModel({
-      this.success, 
-      this.message, 
-      this.code, 
-      this.result, 
-      this.timestamp,});
-
-  UserModel.fromJson(dynamic json) {
-    success = json['success'];
-    message = json['message'];
-    code = json['code'];
-    result = json['result'] != null ? Result.fromJson(json['result']) : null;
-    timestamp = json['timestamp'];
-  }
-  bool? success;
-  String? message;
-  int? code;
-  Result? result;
-  int? timestamp;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['success'] = success;
-    map['message'] = message;
-    map['code'] = code;
-    if (result != null) {
-      map['result'] = result?.toJson();
-    }
-    map['timestamp'] = timestamp;
-    return map;
-  }
-
-}
-
-/// certInfo : [{"id":"1459502815093297153","createTime":"2021-11-13","updateTime":"2021-11-13","createBy":"2c9180827c9712c6017c9712c66f0000","updateBy":"e9ca23d68d884d4ebb19d07889727dae","delFlag":0,"customerId":"2c9180827c9712c6017c9712c66f0000","nickname":"业主15501393136","realname":"曹广东","phone":"15501393136","city":"","communityId":"5","community":"汇置尚都四期","building":"5","unit":"","roomId":"7355","room":"103","voiceprint":"","face":"","userIdentity":0,"idType":"0","idNo":"411425198911292415","certDate":"2021-11-13 20:46:02","certAuditSts":1,"certAuditBy":"e9ca23d68d884d4ebb19d07889727dae","certAuditDate":"2021-11-13","faceRecSts":0,"voiceNumber":null},{"id":"1456468049532100609","createTime":"2021-11-05","updateTime":"2021-11-05","createBy":"2c9180827c9712c6017c9712c66f0000","updateBy":"e9ca23d68d884d4ebb19d07889727dae","delFlag":0,"customerId":"2c9180827c9712c6017c9712c66f0000","nickname":"业主15501393136","realname":"曹广东","phone":"15501393136","city":"","communityId":"10","community":"汇置尚都六期","building":"3","unit":"1","roomId":"12437","room":"1-1-1","voiceprint":"","face":"","userIdentity":0,"idType":"0","idNo":"411425198911292415","certDate":"2021-11-05 11:46:58","certAuditSts":1,"certAuditBy":"e9ca23d68d884d4ebb19d07889727dae","certAuditDate":"2021-11-05","faceRecSts":0,"voiceNumber":null}]
-/// customerInfo : {"id":"2c9180827c9712c6017c9712c66f0000","createTime":"2021-10-19 13:42:43","updateTime":"2021-11-13 20:46:26","createBy":null,"updateBy":"e9ca23d68d884d4ebb19d07889727dae","delFlag":0,"avatar":null,"username":"15501393136","nickname":"业主15501393136","realname":"曹广东","phone":"15501393136","sex":null,"password":null,"salt":null,"regDate":"2021-10-19 13:42:43","certAuditSts":1,"disableSts":0,"pwdSts":0,"qrcode":"https://aispeech-aicity.oss-cn-hangzhou.aliyuncs.com/qrcode/image81712593178.PNG","captcha":null,"oldPassword":null,"confirmPassword":null}
-/// access-token : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2Mzk0NjI5ODAsInVzZXJuYW1lIjoiMTU1MDEzOTMxMzYifQ.fwa6AkQ3EHGwUzICkJeXFRr6ld9KW7dIFNvapXfvcG8"
-
-class Result {
-  Result({
       this.certInfo, 
       this.customerInfo, 
       this.access_token,});
 
-  Result.fromJson(dynamic json) {
+  UserModel.fromJson(dynamic json) {
     if (json['certInfo'] != null) {
       certInfo = [];
       json['certInfo'].forEach((v) {
